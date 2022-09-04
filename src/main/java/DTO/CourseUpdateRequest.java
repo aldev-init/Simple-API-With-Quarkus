@@ -1,7 +1,7 @@
 package DTO;
 
 public class CourseUpdateRequest {
-    public String Name;
-    public String Difficult;
-    public long Price;
+    public String name;
+    public String difficult;
+    public String price;
 }

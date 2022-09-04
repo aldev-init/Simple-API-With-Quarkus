@@ -59,7 +59,7 @@ public class CourseService {
     @POST
     @Transactional
     @Path("/course")
-    public Response addcourse(CourseModel request){
+    public Response addcourse(CourseAddRequest request){
         CourseModel courseInsert = new CourseModel();
         courseInsert.name = request.name;
         courseInsert.price = request.price;
@@ -79,7 +79,7 @@ public class CourseService {
     @Path("course/{id}")
     public Response updateCourse(
             @PathParam("id") long id,
-            CourseModel request
+            CourseUpdateRequest request
     ){
         CourseModel course = CourseModel.findById(id);
 

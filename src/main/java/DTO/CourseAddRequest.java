@@ -1,10 +1,7 @@
 package DTO;
 
-
-
 public class CourseAddRequest {
-    public int Id;
-    public String Name;
-    public String Difficult;
-    public String Price;
+    public String name;
+    public String difficult;
+    public String price;
 }
