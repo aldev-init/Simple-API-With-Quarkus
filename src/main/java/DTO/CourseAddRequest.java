@@ -1,9 +1,10 @@
 package DTO;
 
 
+
 public class CourseAddRequest {
     public int Id;
     public String Name;
     public String Difficult;
-    public long Price;
+    public String Price;
 }
