@@ -1,10 +1,9 @@
 package Controller;
 
-import DTO.CourseAddRequest;
-import DTO.CourseUpdateRequest;
+import DTO.Course.CourseAddRequest;
+import DTO.Course.CourseUpdateRequest;
 import Models.CourseModel;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import io.vertx.core.json.Json;
+import Models.MentorModel;
 import io.vertx.core.json.JsonObject;
 
 import javax.transaction.Transactional;
@@ -12,9 +11,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.zip.CheckedOutputStream;
 
 /*
 all method for manipulate data like insert,update,delete using @Transactional anotations
@@ -64,6 +60,7 @@ public class CourseService {
         courseInsert.name = request.name;
         courseInsert.price = request.price;
         courseInsert.difficult = request.difficult;
+        courseInsert.mentor = MentorModel.findById(request.mentor);
         //save
         CourseModel.persist(courseInsert);
 
@@ -86,6 +83,7 @@ public class CourseService {
         course.name = request.name;
         course.difficult = request.difficult;
         course.price = request.price;
+        course.mentor = MentorModel.findById(request.mentor);
 
         CourseModel.persist(course);
 

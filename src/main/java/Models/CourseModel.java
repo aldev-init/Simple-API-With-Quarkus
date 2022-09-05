@@ -4,6 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
+import java.util.List;
 
 /*
 Make your entities extend PanacheEntity: it has an ID field that is auto-generated.
@@ -30,5 +31,8 @@ public class CourseModel extends PanacheEntityBase {
 
     @Column(name = "price")
     public String price;
+
+    @OneToOne
+    public MentorModel mentor;
 
 }
