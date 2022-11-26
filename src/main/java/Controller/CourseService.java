@@ -5,6 +5,9 @@ import DTO.Course.CourseUpdateRequest;
 import Models.CourseModel;
 import Models.MentorModel;
 import io.vertx.core.json.JsonObject;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -53,6 +56,7 @@ public class CourseService {
     }
 
     @POST
+    @RequestBody(content = {@Content(mediaType = MediaType.APPLICATION_JSON,schema = @Schema(implementation = CourseAddRequest.class))})
     @Transactional
     @Path("/course")
     public Response addcourse(CourseAddRequest request){
