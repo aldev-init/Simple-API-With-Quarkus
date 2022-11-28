@@ -22,6 +22,5 @@ import javax.ws.rs.core.Application;
         )
 )
 public class ProjectDocumentation extends Application {
-    //add comment
-    // new changes
+    //abstract
 }
